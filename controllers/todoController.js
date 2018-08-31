@@ -1,3 +1,12 @@
 module.exports = function(app){
-    console.log('inside controller pattern')
+    app.get('/todo', function(req, res){
+
+    });
+
+    app.post('/todo', function(req, res){
+
+    });
+    app.delete('/todo', function(req, res){
+
+    });
 }
