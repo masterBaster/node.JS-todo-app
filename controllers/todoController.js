@@ -1,6 +1,9 @@
-module.exports = function(app){
-    app.get('/todo', function(req, res){
+var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'go to the gym'}];
 
+module.exports = function(app){
+
+    app.get('/todo', function(req, res){
+        res.render('todo', {todos: data});
     });
 
     app.post('/todo', function(req, res){
