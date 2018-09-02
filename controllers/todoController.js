@@ -3,6 +3,22 @@ const mongoose = require('mongoose');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+//Connect to the database
+mongoose.connect('mongodb://test:test666@ds143242.mlab.com:43242/todo');
+
+//Create a schema as interface
+const todoSchema = new mongoose.Schema({
+    item: String
+});
+
+//Create a model witch is based on schema
+const Todo = mongoose.model('Todo', todoSchema);
+
+let itemOne = Todo({item: 'get flowers'}).save(function(err){
+    if (err) throw err;
+    console.log('item saved...');
+}) 
+
 
 var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'go to the gym'}];
 
